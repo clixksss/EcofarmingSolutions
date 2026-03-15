@@ -5,108 +5,146 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ecofarming Solutions</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
 body{
-    margin:0;
-    font-family: Arial, Helvetica, sans-serif;
-    background:#f4f6f5;
+font-family:'Poppins', sans-serif;
+background:#f6f8f6;
+color:#333;
 }
 
 header{
-    background:#2e7d32;
-    color:white;
-    padding:20px;
-    text-align:center;
+background:#2e7d32;
+color:white;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
-nav{
-    background:#1b5e20;
-    padding:10px;
-    text-align:center;
+header h1{
+font-size:24px;
 }
 
 nav a{
-    color:white;
-    margin:0 15px;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-nav a:hover{
-    text-decoration:underline;
+color:white;
+margin-left:20px;
+text-decoration:none;
+font-weight:500;
 }
 
 .hero{
-    padding:60px;
-    text-align:center;
-    background:#e8f5e9;
+height:60vh;
+background-image:url("https://images.unsplash.com/photo-1464226184884-fa280b87c399");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
 }
 
-.hero h1{
-    font-size:40px;
+.hero h2{
+font-size:40px;
+background:rgba(0,0,0,0.4);
+padding:20px;
+border-radius:10px;
 }
 
-.hero button{
-    padding:12px 20px;
-    border:none;
-    background:#2e7d32;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-    border-radius:6px;
+.section{
+max-width:1100px;
+margin:auto;
+padding:60px 20px;
 }
 
-.hero button:hover{
-    background:#1b5e20;
+.section h2{
+text-align:center;
+margin-bottom:40px;
+font-size:32px;
+color:#2e7d32;
 }
 
-.container{
-    max-width:1000px;
-    margin:auto;
-    padding:40px 20px;
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
-.cards{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
+.product{
+background:white;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+transition:0.3s;
 }
 
-.card{
-    background:white;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0 4px 8px rgba(0,0,0,0.1);
-    flex:1;
+.product:hover{
+transform:scale(1.05);
 }
 
-form{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
+.product img{
+width:100%;
+height:200px;
+object-fit:cover;
 }
 
-input, textarea{
-    padding:10px;
-    border-radius:5px;
-    border:1px solid #ccc;
+.product-info{
+padding:20px;
 }
 
-button.submit{
-    background:#2e7d32;
-    color:white;
-    border:none;
-    padding:10px;
-    cursor:pointer;
+.product-info h3{
+margin-bottom:10px;
+color:#2e7d32;
+}
+
+.about{
+background:#e8f5e9;
+padding:60px 20px;
+text-align:center;
+}
+
+.about p{
+max-width:700px;
+margin:auto;
+font-size:18px;
+}
+
+.contact{
+text-align:center;
+}
+
+.contact button{
+margin-top:20px;
+padding:12px 20px;
+border:none;
+background:#2e7d32;
+color:white;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.contact button:hover{
+background:#1b5e20;
 }
 
 footer{
-    background:#1b5e20;
-    color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:40px;
+background:#1b5e20;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
 }
+
 </style>
 </head>
 
@@ -114,58 +152,88 @@ footer{
 
 <header>
 <h1>🌱 Ecofarming Solutions</h1>
-<p>Tecnología para agricultura sostenible</p>
-</header>
 
 <nav>
-<a href="#inicio">Inicio</a>
-<a href="#servicios">Servicios</a>
+<a href="#productos">Productos</a>
+<a href="#nosotros">Nosotros</a>
 <a href="#contacto">Contacto</a>
 </nav>
 
-<section class="hero" id="inicio">
-<h1>Innovación para el campo</h1>
-<p>Ayudamos a agricultores a optimizar sus cultivos con tecnología.</p>
-<button onclick="alert('Bienvenido a Ecofarming!')">Saber más</button>
+</header>
+
+<section class="hero">
+<h2>Productos Orgánicos Frescos para Hoteles, Restaurantes y Hogares</h2>
 </section>
 
-<section class="container" id="servicios">
-<h2>Nuestros Servicios</h2>
+<section class="section" id="productos">
 
-<div class="cards">
+<h2>Nuestros Productos</h2>
 
-<div class="card">
-<h3>🌾 Agricultura inteligente</h3>
-<p>Sistemas para monitorear cultivos y mejorar la producción.</p>
+<div class="products">
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1542838132-92c53300491e">
+<div class="product-info">
+<h3>Lechuga Orgánica</h3>
+<p>Cultivada sin pesticidas, fresca y perfecta para restaurantes y ensaladas.</p>
+</div>
 </div>
 
-<div class="card">
-<h3>💧 Gestión de agua</h3>
-<p>Optimización de riego y consumo eficiente de recursos.</p>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1576045057995-568f588f82fb">
+<div class="product-info">
+<h3>Tomate Orgánico</h3>
+<p>Tomates frescos cultivados de manera natural para máximo sabor.</p>
+</div>
 </div>
 
-<div class="card">
-<h3>📊 Análisis de datos</h3>
-<p>Datos para tomar mejores decisiones en el campo.</p>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1518843875459-f738682238a6">
+<div class="product-info">
+<h3>Zanahorias Orgánicas</h3>
+<p>Perfectas para jugos, cocina gourmet y alimentación saludable.</p>
+</div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf">
+<div class="product-info">
+<h3>Hierbas Frescas</h3>
+<p>Albahaca, cilantro y más hierbas cultivadas de forma sostenible.</p>
+</div>
 </div>
 
 </div>
+
 </section>
 
-<section class="container" id="contacto">
+<section class="about" id="nosotros">
+
+<h2>Sobre Nosotros</h2>
+
+<p>
+En Ecofarming Solutions trabajamos con agricultores locales para ofrecer productos orgánicos frescos y sostenibles.
+Nuestro objetivo es llevar alimentos saludables directamente a hoteles, restaurantes y hogares.
+</p>
+
+</section>
+
+<section class="section contact" id="contacto">
+
 <h2>Contacto</h2>
 
-<form>
-<input type="text" placeholder="Nombre">
-<input type="email" placeholder="Correo">
-<textarea placeholder="Mensaje"></textarea>
-<button class="submit">Enviar</button>
-</form>
+<p>Si deseas hacer pedidos o recibir más información, contáctanos.</p>
+
+<button onclick="alert('Aquí puedes poner WhatsApp o email')">
+Contactar
+</button>
 
 </section>
 
 <footer>
+
 <p>© 2026 Ecofarming Solutions</p>
+
 </footer>
 
 </body>
