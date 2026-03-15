@@ -1,10 +1,172 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Ecofarming</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecofarming Solutions</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f4f6f5;
+}
+
+header{
+    background:#2e7d32;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+nav{
+    background:#1b5e20;
+    padding:10px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    margin:0 15px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav a:hover{
+    text-decoration:underline;
+}
+
+.hero{
+    padding:60px;
+    text-align:center;
+    background:#e8f5e9;
+}
+
+.hero h1{
+    font-size:40px;
+}
+
+.hero button{
+    padding:12px 20px;
+    border:none;
+    background:#2e7d32;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    border-radius:6px;
+}
+
+.hero button:hover{
+    background:#1b5e20;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+.cards{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.1);
+    flex:1;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+input, textarea{
+    padding:10px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+
+button.submit{
+    background:#2e7d32;
+    color:white;
+    border:none;
+    padding:10px;
+    cursor:pointer;
+}
+
+footer{
+    background:#1b5e20;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+</style>
 </head>
+
 <body>
-  <h1>hola 2</h1>
-  <p>Prueba.</p>
+
+<header>
+<h1>🌱 Ecofarming Solutions</h1>
+<p>Tecnología para agricultura sostenible</p>
+</header>
+
+<nav>
+<a href="#inicio">Inicio</a>
+<a href="#servicios">Servicios</a>
+<a href="#contacto">Contacto</a>
+</nav>
+
+<section class="hero" id="inicio">
+<h1>Innovación para el campo</h1>
+<p>Ayudamos a agricultores a optimizar sus cultivos con tecnología.</p>
+<button onclick="alert('Bienvenido a Ecofarming!')">Saber más</button>
+</section>
+
+<section class="container" id="servicios">
+<h2>Nuestros Servicios</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🌾 Agricultura inteligente</h3>
+<p>Sistemas para monitorear cultivos y mejorar la producción.</p>
+</div>
+
+<div class="card">
+<h3>💧 Gestión de agua</h3>
+<p>Optimización de riego y consumo eficiente de recursos.</p>
+</div>
+
+<div class="card">
+<h3>📊 Análisis de datos</h3>
+<p>Datos para tomar mejores decisiones en el campo.</p>
+</div>
+
+</div>
+</section>
+
+<section class="container" id="contacto">
+<h2>Contacto</h2>
+
+<form>
+<input type="text" placeholder="Nombre">
+<input type="email" placeholder="Correo">
+<textarea placeholder="Mensaje"></textarea>
+<button class="submit">Enviar</button>
+</form>
+
+</section>
+
+<footer>
+<p>© 2026 Ecofarming Solutions</p>
+</footer>
+
 </body>
 </html>
