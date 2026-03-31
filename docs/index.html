@@ -3,236 +3,685 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ecofarming Solutions</title>
+<title>Ecofarming Solutions – Nuestra Finca</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+:root {
+  --soil: #3b2a1a;
+  --leaf: #2e5c28;
+  --leaf-light: #4a8c43;
+  --cream: #f5f0e8;
+  --bark: #8b6542;
+  --mist: #d6e8d4;
+  --sun: #c8a84b;
 }
 
-body{
-font-family:'Poppins', sans-serif;
-background:#f6f8f6;
-color:#333;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--soil);
+  overflow-x: hidden;
 }
 
-header{
-background:#2e7d32;
-color:white;
-padding:20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
+/* ── HEADER ── */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 18px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(59,42,26,0.85);
+  backdrop-filter: blur(10px);
 }
 
-header h1{
-font-size:24px;
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: var(--cream);
+  letter-spacing: 0.5px;
 }
 
-nav a{
-color:white;
-margin-left:20px;
-text-decoration:none;
-font-weight:500;
+.logo span { color: var(--sun); }
+
+nav a {
+  color: rgba(245,240,232,0.8);
+  margin-left: 32px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: color 0.3s;
 }
 
-.hero{
-height:60vh;
-background-image:url("https://images.unsplash.com/photo-1464226184884-fa280b87c399");
-background-size:cover;
-background-position:center;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:white;
+nav a:hover { color: var(--sun); }
+
+/* ── HERO ── */
+.hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
 }
 
-.hero h2{
-font-size:40px;
-background:rgba(0,0,0,0.4);
-padding:20px;
-border-radius:10px;
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=1600');
+  background-size: cover;
+  background-position: center 40%;
+  transform: scale(1.05);
+  animation: slowZoom 20s ease-in-out infinite alternate;
 }
 
-.section{
-max-width:1100px;
-margin:auto;
-padding:60px 20px;
+@keyframes slowZoom {
+  from { transform: scale(1.05); }
+  to   { transform: scale(1.12); }
 }
 
-.section h2{
-text-align:center;
-margin-bottom:40px;
-font-size:32px;
-color:#2e7d32;
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(59,42,26,0.92) 0%,
+    rgba(59,42,26,0.4) 50%,
+    rgba(0,0,0,0.1) 100%
+  );
 }
 
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 72px 80px;
+  max-width: 780px;
 }
 
-.product{
-background:white;
-border-radius:12px;
-overflow:hidden;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-transition:0.3s;
+.hero-tag {
+  display: inline-block;
+  background: var(--sun);
+  color: var(--soil);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 2px;
+  margin-bottom: 24px;
+  animation: fadeUp 0.8s ease both;
 }
 
-.product:hover{
-transform:scale(1.05);
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(44px, 6vw, 72px);
+  color: var(--cream);
+  line-height: 1.1;
+  margin-bottom: 24px;
+  animation: fadeUp 0.8s 0.15s ease both;
 }
 
-.product img{
-width:100%;
-height:200px;
-object-fit:cover;
+.hero h1 em {
+  font-style: italic;
+  color: var(--mist);
 }
 
-.product-info{
-padding:20px;
+.hero p {
+  font-size: 18px;
+  color: rgba(245,240,232,0.75);
+  line-height: 1.7;
+  max-width: 540px;
+  animation: fadeUp 0.8s 0.3s ease both;
 }
 
-.product-info h3{
-margin-bottom:10px;
-color:#2e7d32;
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.about{
-background:#e8f5e9;
-padding:60px 20px;
-text-align:center;
+.scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  right: 48px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(245,240,232,0.5);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-.about p{
-max-width:700px;
-margin:auto;
-font-size:18px;
+.scroll-line {
+  width: 1px;
+  height: 48px;
+  background: rgba(245,240,232,0.3);
+  animation: scrollAnim 2s ease-in-out infinite;
 }
 
-.contact{
-text-align:center;
+@keyframes scrollAnim {
+  0%, 100% { transform: scaleY(1); opacity: 0.3; }
+  50% { transform: scaleY(0.4); opacity: 0.8; }
 }
 
-.contact button{
-margin-top:20px;
-padding:12px 20px;
-border:none;
-background:#2e7d32;
-color:white;
-font-size:16px;
-border-radius:6px;
-cursor:pointer;
+/* ── SECCIÓN CIFRAS ── */
+.stats {
+  background: var(--leaf);
+  padding: 56px 72px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
 }
 
-.contact button:hover{
-background:#1b5e20;
+.stat {
+  text-align: center;
+  padding: 24px;
+  border-right: 1px solid rgba(255,255,255,0.15);
 }
 
-footer{
-background:#1b5e20;
-color:white;
-text-align:center;
-padding:20px;
-margin-top:40px;
+.stat:last-child { border-right: none; }
+
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  color: var(--sun);
+  display: block;
+  line-height: 1;
 }
 
+.stat-label {
+  font-size: 13px;
+  color: rgba(214,232,212,0.8);
+  letter-spacing: 0.5px;
+  margin-top: 8px;
+}
+
+/* ── LA FINCA ── */
+.finca {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+}
+
+.finca-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.finca-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.finca-img:hover img { transform: scale(1.04); }
+
+.finca-text {
+  background: var(--soil);
+  color: var(--cream);
+  padding: 80px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--sun);
+  margin-bottom: 20px;
+}
+
+.finca-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  color: var(--cream);
+}
+
+.finca-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(245,240,232,0.75);
+  margin-bottom: 16px;
+}
+
+/* ── PROCESO ── */
+.proceso {
+  padding: 100px 72px;
+  background: var(--cream);
+}
+
+.proceso > .section-label,
+.proceso > h2 {
+  text-align: center;
+}
+
+.proceso > h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  color: var(--soil);
+  margin-bottom: 64px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  position: relative;
+}
+
+.steps::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(to right, var(--leaf), var(--sun), var(--leaf));
+  z-index: 0;
+}
+
+.step {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.step-icon {
+  width: 72px;
+  height: 72px;
+  background: var(--leaf);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  font-size: 28px;
+  border: 4px solid var(--cream);
+  box-shadow: 0 0 0 2px var(--leaf);
+}
+
+.step h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: var(--soil);
+  margin-bottom: 10px;
+}
+
+.step p {
+  font-size: 14px;
+  color: var(--bark);
+  line-height: 1.7;
+}
+
+/* ── TIERRA ── */
+.tierra {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 560px;
+}
+
+.tierra-text {
+  background: var(--mist);
+  padding: 80px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tierra-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  line-height: 1.2;
+  color: var(--soil);
+  margin-bottom: 24px;
+}
+
+.tierra-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #4a3c2c;
+  margin-bottom: 16px;
+}
+
+.badge-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.badge {
+  background: var(--leaf);
+  color: var(--cream);
+  padding: 6px 16px;
+  border-radius: 40px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.tierra-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.tierra-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.tierra-img:hover img { transform: scale(1.04); }
+
+/* ── GALERÍA ── */
+.galeria {
+  padding: 100px 72px;
+  background: var(--soil);
+}
+
+.galeria > .section-label,
+.galeria > h2 {
+  text-align: center;
+}
+
+.galeria > h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  color: var(--cream);
+  margin-bottom: 48px;
+}
+
+.grid-galeria {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 260px 260px;
+  gap: 12px;
+}
+
+.grid-galeria .gal-item {
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.grid-galeria .gal-item:first-child {
+  grid-row: 1 / 3;
+}
+
+.grid-galeria .gal-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.grid-galeria .gal-item:hover img { transform: scale(1.06); }
+
+/* ── CONTACTO ── */
+.contacto {
+  background: var(--leaf);
+  padding: 100px 72px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.contacto::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+
+.contacto::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; left: -60px;
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+
+.contacto h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  color: var(--cream);
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.contacto p {
+  font-size: 18px;
+  color: rgba(245,240,232,0.75);
+  max-width: 500px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-contacto {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--sun);
+  color: var(--soil);
+  padding: 16px 36px;
+  border-radius: 4px;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+}
+
+.btn-contacto:hover {
+  background: #d4b052;
+  transform: translateY(-2px);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--soil);
+  color: rgba(245,240,232,0.5);
+  text-align: center;
+  padding: 28px;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+
+footer span { color: var(--sun); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  header { padding: 16px 24px; }
+  nav a { margin-left: 16px; font-size: 12px; }
+  .hero-content { padding: 0 24px 60px; }
+  .stats { grid-template-columns: repeat(2, 1fr); padding: 40px 24px; }
+  .finca, .tierra { grid-template-columns: 1fr; }
+  .finca-img, .tierra-img { height: 320px; }
+  .finca-text, .tierra-text { padding: 56px 24px; }
+  .proceso, .galeria, .contacto { padding: 72px 24px; }
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .steps::before { display: none; }
+  .grid-galeria {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .grid-galeria .gal-item:first-child { grid-row: auto; }
+}
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
-<h1> Ecofarming Solutions</h1>
-
-<nav>
-<a href="#productos">Productos</a>
-<a href="#nosotros">Nosotros</a>
-<a href="#contacto">Contacto</a>
-</nav>
-
+  <div class="logo">Eco<span>farming</span> Solutions</div>
+  <nav>
+    <a href="#lafinca">La Finca</a>
+    <a href="#proceso">Proceso</a>
+    <a href="#tierra">Nuestra Tierra</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-<h2>Productos Orgánicos Frescos</h2>
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">🌱 Agricultura Orgánica · Costa Rica</div>
+    <h1>Una finca que<br><em>cuida la tierra</em><br>para cuidarte a ti.</h1>
+    <p>Desde nuestra finca hasta tu mesa, cultivamos con respeto por el suelo, el agua y las generaciones que vienen.</p>
+  </div>
+  <div class="scroll-hint">
+    <span>Explorar</span>
+    <div class="scroll-line"></div>
+  </div>
 </section>
 
-<section class="section" id="productos">
-
-<h2>Nuestros Productos</h2>
-
-<div class="products">
-
-<div class="product">
-<img src="https://images.unsplash.com/photo-1542838132-92c53300491e">
-<div class="product-info">
-<h3>Lechuga Orgánica</h3>
-<p>Cultivada sin pesticidas, fresca y perfecta para restaurantes y ensaladas.</p>
-</div>
-</div>
-
-<div class="product">
-<img src="https://images.unsplash.com/photo-1576045057995-568f588f82fb">
-<div class="product-info">
-<h3>Tomate Orgánico</h3>
-<p>Tomates frescos cultivados de manera natural para máximo sabor.</p>
-</div>
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <span class="stat-num">15+</span>
+    <div class="stat-label">Hectáreas cultivadas</div>
+  </div>
+  <div class="stat">
+    <span class="stat-num">0</span>
+    <div class="stat-label">Pesticidas sintéticos</div>
+  </div>
+  <div class="stat">
+    <span class="stat-num">100%</span>
+    <div class="stat-label">Orgánico certificado</div>
+  </div>
+  <div class="stat">
+    <span class="stat-num">12</span>
+    <div class="stat-label">Variedades de cultivo</div>
+  </div>
 </div>
 
-<div class="product">
-<img src="https://images.unsplash.com/photo-1518843875459-f738682238a6">
-<div class="product-info">
-<h3>Zanahorias Orgánicas</h3>
-<p>Perfectas para jugos, cocina gourmet y alimentación saludable.</p>
-</div>
-</div>
-
-<div class="product">
-<img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf">
-<div class="product-info">
-<h3>Hierbas Frescas</h3>
-<p>Albahaca, cilantro y más hierbas cultivadas de forma sostenible.</p>
-</div>
-</div>
-
-</div>
-
+<!-- LA FINCA -->
+<section id="lafinca" class="finca">
+  <div class="finca-img">
+    <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=900" alt="Nuestra finca">
+  </div>
+  <div class="finca-text">
+    <div class="section-label">Quiénes Somos</div>
+    <h2>Una finca con historia y propósito</h2>
+    <p>Ecofarming Solutions nació del amor por la tierra costarricense y la convicción de que es posible producir alimentos de alta calidad sin comprometer el ecosistema que nos rodea.</p>
+    <p>Nuestra finca es un sistema vivo: rotamos cultivos, respetamos los ciclos naturales y trabajamos en armonía con la biodiversidad local. Cada hectárea tiene una función; cada planta, un lugar.</p>
+    <p>Creemos que el origen importa. Por eso somos transparentes sobre cómo, dónde y quiénes producen lo que llevamos a su mesa.</p>
+  </div>
 </section>
 
-<section class="about" id="nosotros">
+<!-- PROCESO -->
+<section id="proceso" class="proceso">
+  <div class="section-label">Del suelo a su mesa</div>
+  <h2>Cómo trabajamos</h2>
 
-<h2>Sobre Nosotros</h2>
-
-<p>
-En Ecofarming Solutions cultivamos nuestros productos directamente en nuestra finca, cuidando cada etapa del proceso desde la siembra hasta la cosecha. Una vez recolectados, seleccionamos y empacamos cuidadosamente cada producto para que llegue fresco, limpio y listo para consumir. Nuestro compromiso es ofrecer alimentos orgánicos de la más alta calidad, llevando lo mejor de nuestra finca a su mesa, con sabor natural y producción responsable.
-</p>
-
+  <div class="steps">
+    <div class="step">
+      <div class="step-icon">🌍</div>
+      <h3>Preparación del suelo</h3>
+      <p>Enriquecemos la tierra con compost natural y abonos orgánicos antes de cada siembra.</p>
+    </div>
+    <div class="step">
+      <div class="step-icon">🌿</div>
+      <h3>Siembra</h3>
+      <p>Usamos semillas no transgénicas y respetamos los tiempos y ciclos de cada cultivo.</p>
+    </div>
+    <div class="step">
+      <div class="step-icon">💧</div>
+      <h3>Cultivo consciente</h3>
+      <p>Riego eficiente, control biológico de plagas y rotación de cultivos en toda la finca.</p>
+    </div>
+    <div class="step">
+      <div class="step-icon">📦</div>
+      <h3>Cosecha y entrega</h3>
+      <p>Recolectamos, seleccionamos y empacamos para que llegue fresco y en perfecto estado.</p>
+    </div>
+  </div>
 </section>
 
-<section class="section contact" id="contacto">
-
-<h2>Contacto</h2>
-
-<p>Si deseas hacer pedidos o recibir más información, contáctanos.</p>
-
-<button onclick="alert('WhatsApp: +506 8393 6999')">
-Contactar
-</button>
-
+<!-- NUESTRA TIERRA -->
+<section id="tierra" class="tierra">
+  <div class="tierra-text">
+    <div class="section-label">Nuestra Tierra</div>
+    <h2>Un terreno que respetamos profundamente</h2>
+    <p>Ubicados en un microclima privilegiado de Costa Rica, nuestros suelos volcánicos ricos en minerales y el acceso a agua limpia nos permiten cultivar sin necesidad de intervención química.</p>
+    <p>Trabajamos activamente para devolver a la tierra lo que tomamos: compostamos residuos, conservamos la cobertura vegetal y mantenemos corredores de biodiversidad en los límites de la finca.</p>
+    <div class="badge-list">
+      <span class="badge">Suelo Volcánico</span>
+      <span class="badge">Riego por goteo</span>
+      <span class="badge">Compostaje propio</span>
+      <span class="badge">Sin GMO</span>
+      <span class="badge">Biodiversidad activa</span>
+    </div>
+  </div>
+  <div class="tierra-img">
+    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=900" alt="Nuestra tierra">
+  </div>
 </section>
 
+<!-- GALERÍA -->
+<section class="galeria">
+  <div class="section-label" style="color:var(--sun);">La Finca en Imágenes</div>
+  <h2>Así se ve nuestra tierra</h2>
+
+  <div class="grid-galeria">
+    <div class="gal-item">
+      <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800" alt="Campo amplio">
+    </div>
+    <div class="gal-item">
+      <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=600" alt="Cultivos">
+    </div>
+    <div class="gal-item">
+      <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600" alt="Flores del campo">
+    </div>
+    <div class="gal-item">
+      <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600" alt="Amanecer en la finca">
+    </div>
+    <div class="gal-item">
+      <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600" alt="Trabajo en la finca">
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="contacto">
+  <h2>Visita nuestra finca</h2>
+  <p>¿Quieres conocer cómo cultivamos, hacer un pedido o establecer una alianza? Escríbenos, con gusto te atendemos.</p>
+  <a class="btn-contacto" href="https://wa.me/50683936999" target="_blank">
+    💬 &nbsp; Contactar por WhatsApp
+  </a>
+</section>
+
+<!-- FOOTER -->
 <footer>
-
-<p>© 2026 Ecofarming Solutions</p>
-
+  <p>© 2026 <span>Ecofarming Solutions</span> · Cultivando con propósito · Costa Rica</p>
 </footer>
 
 </body>
