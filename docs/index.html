@@ -329,6 +329,67 @@ nav a:hover { color: var(--sun); }
   line-height: 1.7;
 }
 
+/* ── CERTIFICACIONES ── */
+.certificaciones {
+  padding: 100px 72px;
+  background: var(--cream);
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.cert-card {
+  background: white;
+  border-radius: 12px;
+  padding: 40px 32px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(59,42,26,0.08);
+  border: 1px solid rgba(59,42,26,0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cert-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(59,42,26,0.14);
+}
+
+.cert-logo {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.cert-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--soil);
+  margin-bottom: 12px;
+}
+
+.cert-card p {
+  font-size: 14px;
+  color: var(--bark);
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .certificaciones { padding: 72px 24px; }
+}
+
 /* ── TIERRA ── */
 .tierra {
   display: grid;
@@ -626,6 +687,40 @@ footer span { color: var(--sun); }
   </div>
 </section>
 
+<!-- CERTIFICACIONES -->
+<section class="certificaciones">
+  <div class="section-label" style="text-align:center;">Respaldo Oficial</div>
+  <h2 style="font-family:'Playfair Display',serif; font-size:40px; color:var(--soil); text-align:center; margin-bottom:48px;">Nuestras Certificaciones</h2>
+
+  <div class="cert-grid">
+
+    <div class="cert-card">
+      <div class="cert-logo">
+        <img src="imagenes/cert1.png" alt="Certificación 1">
+      </div>
+      <h3>Nombre de la certificación</h3>
+      <p>Descripción breve de qué garantiza esta certificación y qué significa para la finca.</p>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-logo">
+        <img src="imagenes/cert2.png" alt="Certificación 2">
+      </div>
+      <h3>Nombre de la certificación</h3>
+      <p>Descripción breve de qué garantiza esta certificación y qué significa para la finca.</p>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-logo">
+        <img src="imagenes/cert3.png" alt="Certificación 3">
+      </div>
+      <h3>Nombre de la certificación</h3>
+      <p>Descripción breve de qué garantiza esta certificación y qué significa para la finca.</p>
+    </div>
+
+  </div>
+</section>
+
 <!-- NUESTRA TIERRA -->
 <section id="tierra" class="tierra">
   <div class="tierra-text">
@@ -649,7 +744,7 @@ footer span { color: var(--sun); }
 <!-- GALERÍA -->
 <section class="galeria">
   <div class="section-label" style="color:var(--sun);">La Finca en Imágenes</div>
-  <h2>Así se ve nuestra tierra</h2>
+  <h2>Así se ve nuestra empresa</h2>
 
   <div class="grid-galeria">
     <div class="gal-item">
